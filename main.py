@@ -1,8 +1,8 @@
+from modesl.transaction from Transaction
+##apagar uma trasacao
+##consultar transacao por tipo
 class Initialize():
-    def __init__(self):
-        self.__transactions = []
-
-    def show_menu():
+    def show_menu(self):
         print(50 * '-')
         print('Bem-vindo ao Controle Financeiro')
         print('1 - Adicionar transação')
@@ -24,14 +24,13 @@ class Initialize():
         description = input('Informe a descrição: ')
     
 
-        self.__transactions.append(
-            (operation, value, description)
-        )
+        t = Transaction(operation, value, description)
+        T.save()
+        del t
 
     def to_view(self):
-        for transactions in self.__transactions:
-            print(f'Operação: {transaction[0]} - \
-            Valor: {transaction[1]} - Descrição: {transaction[2]}')
+        Transaction().view()
+
 
     def to_go_out(self):
         print('\nObrigado, volte sempre!')
@@ -40,16 +39,16 @@ if __name__ == '__main__':
 
     init = Initialize()
 
-option = ''
+    option = ''
 
-while option != '3':
-    init.show_menu()
+    while option != '3':
+        init.show_menu()
 
-    option = init.chose_option()
+        option = init.chose_option()
 
-    if option == '1':
-        init.to_add()
-    elif option == '2':
-        init.to_view()
-    elif option == '3':
-        init.to_go_out()
+        if option == '1':
+            init.to_add()
+        elif option == '2':
+            init.to_view()
+        elif option == '3':
+            init.to_go_out()
